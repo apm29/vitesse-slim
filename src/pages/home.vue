@@ -1,11 +1,11 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 </script>
 
 <template>
-  <img alt="Vue logo" src="../assets/logo.png" />
+  <img alt="Vue logo" src="../assets/logo.png" m-auto my-12 />
   <HelloWorld msg="Hello Vue 3 + Vite" />
-  <van-button>123</van-button>
-  <van-tag>123</van-tag>
+  <button btn @click="router.back">Back</button>
 </template>

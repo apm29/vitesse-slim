@@ -1,17 +1,26 @@
 <template>
-  <div class="count" prose>
-    {{ count }}
+  <div bg-surface text-center h-screen>
+    <router-link link to="/home" m-auto>HOME</router-link>
+    <div class="count" prose>
+      {{ store.count }}
+    </div>
+    <button btn block m-auto my-3 @click="store.count++">
+      <div i-mdi-plus text-2xl></div>
+      ADD
+    </button>
+    <button btn block m-auto my-3 @click="handleAxios">Axios</button>
   </div>
-  <van-button @click="store.increment">
-    <div i-mdi-plus text-2xl></div>
-    ADD
-  </van-button>
-  <router-link to="/home" bg-orange-500 text-white px-4 py-4 block>HOME</router-link>
 </template>
 <script setup>
-import { useAppStore } from "../store";
+import { useAppStore } from "~/store";
+import { remote } from "~/composables";
 const store = useAppStore();
-const count = computed(() => store.count);
+const handleAxios = function () {
+  remote.postForm({
+    url: "/test",
+    silent: true,
+  });
+};
 </script>
 <style scoped lang="scss">
 .count {

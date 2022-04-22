@@ -1,12 +1,10 @@
 import { defineStore } from "pinia";
+import { localToken } from "~/composables";
 
 export const useAppStore = defineStore("app-state", {
   state: () => {
-    return { count: 0 };
+    return { token: localToken, count: 0 };
   },
   actions: {
-    increment() {
-      this.count++;
-    },
   },
 });
